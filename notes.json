@@ -1,0 +1,3304 @@
+[
+{
+"type": "p",
+"style": "TITLE",
+"bullet": false,
+"runs": [
+[
+"Westline Carriers: Assessment Notes",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Ritika Raj Parekh.",
+true
+],
+[
+" \u000b\u000bWorking notes for the Humaniti AI challenge pack. Started 5 November 2026. Deadline: 6 November 2026, 12:00 IST (07:30 Berlin time).\u000b",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"These are my running notes. Every check I run, every figure I get and every conclusion I reach goes here first. The HTML report, the deck, the five questions and the distrust memo are built from this document at the end.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Assessment overview",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Westline Carriers runs six five-axle, fourteen-tyre trucks from two depots, Belagavi and Hubballi. In April 2026 they fitted a TyreSense TPMS on every truck: one sensor per valve stem reporting pressure, temperature and battery, plus a GPS fix. I have six weeks of exports (1 June to 15 July 2026), the vehicle and tyre register with tread-depth inspections, the daily kilometre log, the inflation spec sheet and one transcript of a conversation with the fleet manager, Ramesh Vijayan.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"The brief is a single sentence: find out what is happening with this fleet's tyres. Behind it I read three concrete questions from the client:",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"The alarms.",
+true
+],
+[
+" The MD says the system produces nothing but alarms. Ramesh describes all fourteen tyres on the Goa truck alarming every afternoon in June and reading normal the next morning.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"One tyre, one day ahead.",
+true
+],
+[
+" Ramesh wants a warning that names one tyre a day before it lets him down, instead of fourteen alarms.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"The Karwar failure.",
+true
+],
+[
+" An inner tyre on the Karwar truck failed on the road in July with no warning anyone knew of. The MD wants to know whether it could have been foreseen.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Ramesh also asked directly whether the Hubballi roads are eating his tyres. I am treating that as a fourth question.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"The assessment rewards conclusions that are true, reasoning from how tyres physically behave before reaching for statistics, cross-checking sources against each other, and saying clearly what the pack cannot answer. My plan is to establish a few findings carefully rather than many quickly. My priority order is: data quality first (so nothing later is built on a bad table), then the alarms, the Hubballi pressures and the Karwar failure, then cold pressure against spec, slow leaks and twin-pair balance.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Deliverables:",
+true
+],
+[
+" a short deck of the most critical findings (Claude Slides), an HTML file with all relevant findings, five ranked questions for Ramesh, a one-page distrust memo, every AI transcript in full, and all code.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Fleet reference",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Ramesh refers to trucks by their run, the files use registrations. I use both throughout.",
+false
+]
+]
+},
+{
+"type": "table",
+"rows": [
+[
+"Fleet no",
+"Registration",
+"Run name",
+"Make / model",
+"Depot",
+"Usual run",
+"Tread inspections"
+],
+[
+"T1",
+"KA25AB4471",
+"Goa truck",
+"BharatBenz 4228R (2023)",
+"Belagavi",
+"Belagavi to Panaji via Anmod ghat",
+"10 Jun and 14 Jul"
+],
+[
+"T2",
+"KA25AC1182",
+"Karwar truck",
+"Tata Signa 4225.T (2022)",
+"Belagavi",
+"Belagavi, Hubballi, Karwar",
+"30 Jun"
+],
+[
+"T3",
+"KA22AD7730",
+"Gadag truck",
+"Ashok Leyland 4220 (2021)",
+"Hubballi",
+"Hubballi, Dharwad, Gadag distribution",
+"8 Jul"
+],
+[
+"T4",
+"KA25AE2016",
+"City truck",
+"Tata Signa 4225.T (2023)",
+"Hubballi",
+"Hubballi city and Dharwad deliveries",
+"9 Jul"
+],
+[
+"T5",
+"KA48AF9054",
+"Shivamogga truck",
+"BharatBenz 4228R (2022)",
+"Hubballi",
+"Hubballi, Davanagere, Shivamogga; Mangaluru occasionally",
+"None"
+],
+[
+"T6",
+"KA22AG3391",
+"Vijayapura truck",
+"Ashok Leyland 4220 (2021)",
+"Belagavi",
+"Belagavi, Bagalkot, Vijayapura",
+"None"
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"Tyre positions and codes",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"TPMS codes give axle, side and position: 4LI is the inner tyre on the left of axle 4. Axles 1 to 3 carry single tyres (1 is steer), axles 4 and 5 carry twins. The inspector, Rajan, uses workshop codes: C or D for side, F1 to F3 for axles 1 to 3, R1 and R2 for axles 4 and 5, then I or O. From finding F3, C is the left side and D is the right side, so CF1 = 1LO, DF1 = 1RO, CR1I = 4LI and DR2I = 5RI.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"Inflation standard",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Cold pressures from the spec sheet, the same for all six trucks: axle 1 at 115 PSI, axles 2 and 3 at 105 PSI, axles 4 and 5 at 100 PSI. These match the card on the depot wall as Ramesh describes it. The spec notes that matter for the analysis:",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"\"Cold\" means before the truck has run, or after it has stood for at least three hours. A running tyre reads higher.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Both tyres of a twin pair must be at the same pressure.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Normal loss through the casing is up to about 3 PSI a month. Faster loss points to a puncture, valve, bead or casing problem.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Under-inflation of 10 to 15 per cent cannot be seen by eye.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"Known events in the period",
+false
+]
+]
+},
+{
+"type": "table",
+"rows": [
+[
+"Date",
+"Truck",
+"Event",
+"Source"
+],
+[
+"28 Jun 2026 (Sunday)",
+"T1 Goa",
+"3LO and 3RO swapped left to right (\"re-fitted\")",
+"Tyre Register; inspection sheet 14 Jul"
+],
+[
+"11 Jul 2026",
+"T2 Karwar",
+"5RI (serial WL-T2-5RI-0242) failed and was removed at the roadside",
+"Tyre Register; transcript"
+],
+[
+"12 Jul 2026",
+"T2 Karwar",
+"New 5RI fitted (WL-T2-5RI-0901, MRF S3C8)",
+"Tyre Register"
+],
+[
+"Two Sundays (dates not given)",
+"T4 City",
+"In the workshop for a clutch",
+"Transcript"
+],
+[
+"First week of July",
+"T5 Shivamogga",
+"One Mangaluru run, the only one in the period",
+"Transcript"
+],
+[
+"Second week of June onward",
+"T1 Goa route",
+"Monsoon rain on the Goa side, heavy in the afternoons",
+"Transcript"
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Methodology",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Tools.",
+true
+],
+[
+" Google Colab with pandas, reading the files directly from my Google Drive folder Westline_Working. Notebook 01_load_and_clean holds the loading and data-quality work. Later notebooks will hold the analysis.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Order of work.",
+true
+],
+[
+" I check the data before I analyse it, and I explain what I see from tyre physics first: pressure rises with temperature, so a reading only means something once I know whether the tyre was hot or cold. I only use a statistical method once the physical explanation has been ruled in or out. Where two sources disagree I record it and check against a third source before choosing one.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Cleaning rules applied so far:",
+true
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Truck identity is taken from the file name, not from the Vehicle column (see F2).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Rows duplicated across the June and July exports are dropped, keeping one copy (see F1).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Only the fourteen sensor slots for axles 1 to 5 are kept; axles 6 and 7 are empty on every truck (see F7).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Inspection positions are converted to TPMS codes with C = left, D = right (see F3), and tyres are tracked by serial so the 28 June swap does not mix up two tyres.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Cold readings (Section 5):",
+true
+],
+[
+" a rest is a run of consecutive slow-mode records lasting at least three hours with under 200 m of cumulative GPS movement; the cold reading is each tyre's median over the last 10 minutes of the rest, just before the truck moves; morning cold readings are rests ending between 02:00 and 10:00 (median tyre temperature 24.8 °C). Slow mode alone does not make a reading cold (F10). Detected pressure-adjustment events are steps of 3 PSI or more in a tyre's 10-minute median while parked, with temperature changing by less than 1.5 °C; they are detected in the data, not confirmed inflations.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Data-quality checks",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Summary of every check run so far. Problems are written up in full as findings below.",
+false
+]
+]
+},
+{
+"type": "table",
+"rows": [
+[
+"Check",
+"Result",
+"Action",
+"Finding"
+],
+[
+"Row count, all 12 exports",
+"559,179 rows, 72 data columns",
+"None",
+"F7"
+],
+[
+"Overlap between June and July exports",
+"12-hour overlap on every truck, 2,869 exact duplicate rows",
+"Duplicates dropped",
+"F1"
+],
+[
+"Vehicle column against file name",
+"Goa truck July file reads KA25B4471",
+"Truck taken from file name",
+"F2"
+],
+[
+"Duplicates within each file",
+"None",
+"None",
+"F7"
+],
+[
+"Gaps over one hour between records",
+"None on any truck",
+"None",
+"F7"
+],
+[
+"Axle 6 and 7 slots",
+"Completely empty",
+"Dropped",
+"F7"
+],
+[
+"Interval between records",
+"Two rates: about 18 to 20 s and about 2 min",
+"Under investigation (H4)",
+"F5"
+],
+[
+"Records with no GPS fix",
+"13 to 19% on Goa and Karwar trucks, 1 to 4% on the rest",
+"Under investigation (H5)",
+"F6"
+],
+[
+"Inspection side codes (C/D)",
+"Data dictionary contradicts itself; serials show C = left",
+"C = left used",
+"F3"
+],
+[
+"Which truck had the June rotation",
+"Transcript unsure; register and inspection sheet both say T1 Goa",
+"Register used",
+"F4"
+],
+[
+"Inspection serials against Tyre Register",
+"All match except WL-T2-5RI-0242, the tyre that failed on 11 Jul",
+"Explained by the replacement",
+"F4"
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Section 3 added the reading-level checks (impossible values, packet loss per sensor, silent sensors, tyres below 70 PSI); results are in F8 and F9. Section 3B added explicit PASS/FAIL validation (registration, duplicates left, GPS fields, GPS lag, location box, reporting mode); results are in F10 and F11. Section 7 completed the kilometre-log continuity and GPS-distance checks: the 270 daily records (45 per truck) show no continuity breaks or arithmetic discrepancies, and GPS distance is 94% to 98% of logged kilometres on every truck (F18).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Register and transcript disagree on the Karwar 5RI replacement.",
+true
+],
+[
+" The transcript says the driver changed the tyre at the roadside near Kittur on 11 July; the Tyre Register says the new tyre was fitted on 12 July, and 5RI sent nothing between 14:19 on 11 July and 06:30 on 12 July. Recorded for the distrust memo; see F12.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Hypotheses",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Each hypothesis is something I expect to be true from the pack but have not yet shown in the data. When one is tested, its status points to the finding that resolves it.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H1. The Goa truck's afternoon alarms reflect a pressure change affecting all fourteen tyres at once, not air loss from individual tyres. Source: transcript (afternoon monsoon on the Goa side, all fourteen alarming together, normal next morning). Test: Section 6. Status: supported with limits (F17). All 14 tyres fell together in every qualifying comparison of all 13 Goa events, at 0.66 to 0.73 PSI per °C as tyre temperature fell, between 13:00 and 17:00 and only from 9 June; pressure largely recovered as temperature returned (9 of 13 events measurable). Rain cooling the tyres is plausible and consistent with Ramesh's account, but not proven: the export has no weather data, missing GPS during events is an association only, and the valve-stem sensor measures air temperature, not the tread. The same pattern appears on all six trucks, including the Karwar truck while parked, so it is not specific to the Goa road. Whether these events set off TyreSense alarms cannot be checked without the alert log.",
+true
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H2. The Hubballi trucks read low in the morning because air is adjusted while the tyres are hot, not because the roads cause leaks.",
+true
+],
+[
+" Source: transcript (Girish fills after lunch; next morning drive tyres read 90 to 91 against 100). Status: supported, with limits (F14 to F16). Observed: Hubballi's detected pressure-adjustment events occur at 15:20 to 16:10 with tyres at 32 to 52 °C, Belagavi's at 06:00 to 06:50 with tyres at 22 to 28 °C, both to within about 1 PSI of the card value. At the first morning cold reading at least 12 hours later, all 69 Hubballi adjustment rows (38 distinct tyres) were 5.8 to 17.9 PSI under spec (median -10.7), and all 43 Belagavi rows (37 tyres) were within -1.9 to +2.4 PSI (median +0.3). Inferred: Hubballi adjusts to the card value hot and Belagavi cold; the data does not show who adjusts, with what gauge, or the exact procedure. Limits: cooling under this dataset's empirical 0.62 PSI per °C can explain most of the Hubballi deficit but the unexplained share ranges from about -5 to +1 PSI depending on the coefficient; the data cannot separate cooling, overnight loss, gauge differences or sensor temperature, and does not rule out a small road effect (stable between-fill loss: Hubballi -3.0 raw and -1.7 adjusted against Belagavi -1.4 and -1.3 PSI per 30 days, descriptive medians across six trucks).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H3. The Karwar 5RI failure on 11 July showed in the TPMS data before it happened.",
+true
+],
+[
+" Source: transcript and Tyre Register. Test: 5RI against its twin 5RO over the preceding days and hours, looking for falling cold pressure or rising temperature relative to the twin. Status: answered by F12. There was no pressure warning on earlier days; the loss began at about 03:00 on 11 July and a twin comparison would have flagged it at 03:40.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H4. The fast reporting rate (about 18 to 20 s) means the truck is moving and the slow rate (about 2 min) means it is parked.",
+true
+],
+[
+" Source: F5. Test: compare the rate with movement between GPS fixes. Status: partly supported, see F10. Resolved by F10: slow reporting goes with negligible movement, fast reporting occurs both moving and stationary (44.3% of valid intervals below 3 km/h), and the reason for switching is not established.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H5. Missing GPS on the Goa and Karwar trucks comes from ghat terrain or monsoon cloud. Source: F6. Test: where and when the fix drops out. Status: partly examined (F17). During the afternoon cooling events GPS is missing for 45% to 70% of the time on every truck, against 1% to 7% overall, including the Karwar truck while parked, where terrain cannot change. This association fits cloud or rain but does not prove it; terrain on the ghat was not tested separately.",
+true
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H6. Tyre air temperatures on the Goa truck rise on the Anmod ghat descent, and the rise is larger on braked axles.",
+true
+],
+[
+" Source: transcript (brake complaints on Anmod). Test: temperature by axle on the morning descent against flat running. Limit: the sensor measures air inside the tyre, not the brake drum, so this can show heat reaching the tyres but cannot prove the brakes are the source or that they are worn. Status: open.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H7. The 30 June inspection of the Karwar truck may not be reliable for the failed tyre.",
+true
+],
+[
+" Source: inspection sheet. The failed tyre (DR2I, WL-T2-5RI-0242) reads 15.9 mm at all three points and its twin (DR2O) reads 12.0 mm at all three, while most other readings on the sheets vary by 0.1 to 0.4 mm across the tread. Test: check how many readings on each sheet are identical across all three points, and what 15.9 mm means for a tyre of that age. Status: open.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"H8. Some twin pairs drift out of balance for days or weeks, against the spec, and the cases differ in kind.",
+true
+],
+[
+" Source: C6 in Sections 4H and 4I. Gadag 5RI/5RO: a persistent outer deficit of 11 to 12 PSI from 1 to 5 June, with both tyres steady (daily minimums about 92 to 94 PSI for 5RI and 83 for 5RO); on 6 June the gap closed because 5RI fell to 5RO's level, not because 5RO was inflated; afterwards both ran at daily minimums of about 77 to 81 PSI, well below the 100 PSI cold spec, although daily minimums are not confirmed cold readings. Goa 4LI/4LO: a relative deterioration, with the median difference widening from about -4.6 PSI on 1 June to -7.2 PSI on 16 and 17 June as 4LI's daily minimum fell from 92.7 to 87.0 PSI while 4LO's went from 96.3 to 93.1; on 19 June both read about 98.5 to 99 PSI, which looks like a top-up, after which 4LI again fell behind its twin (-4.6 PSI by 25 June). I do not yet have an absolute loss rate for 4LI against the spec's 3 PSI a month, because these are not confirmed cold readings. Goa 5RI/5RO and Vijayapura 5LI/5LO show smaller persistent outer deficits. Section 5 explains the Gadag case: on 5 June at about 15:40 the Hubballi depot let air out of the truck's hot tyres to the card value, which brought 5RI down to 5RO's level (F15). On cold readings, Goa 4LI loses air several times faster than the spec allows in every interval (F16). Other causes unresolved. Status: largely answered by F15 and F16.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Detailed findings",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Each finding follows the same six parts. Figures are from notebook 01_load_and_clean, Cell 2, unless stated.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F1. The June and July exports overlap by 12 hours and duplicate 2,869 records",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" I loaded all twelve exports into one table. For each truck I compared the last timestamp in the June file with the first timestamp in the July file, then counted rows that are identical in every data column (all columns except the source file name and the Vehicle field).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" On every truck, the July export starts at about 18:00 on 30 June and the June export ends at about 06:00 on 1 July. Every row in that window appears in both files with identical values:",
+false
+]
+]
+},
+{
+"type": "table",
+"rows": [
+[
+"Truck",
+"Overlap window",
+"Duplicate rows"
+],
+[
+"T3 Gadag (KA22AD7730)",
+"30 Jun 18:00:03 to 1 Jul 05:58:30",
+"640"
+],
+[
+"T6 Vijayapura (KA22AG3391)",
+"30 Jun 18:00:02 to 1 Jul 05:59:24",
+"361"
+],
+[
+"T1 Goa (KA25AB4471)",
+"30 Jun 18:00:01 to 1 Jul 05:58:14",
+"384"
+],
+[
+"T2 Karwar (KA25AC1182)",
+"30 Jun 18:00:21 to 1 Jul 05:59:50",
+"711"
+],
+[
+"T4 City (KA25AE2016)",
+"30 Jun 18:00:06 to 1 Jul 05:59:23",
+"413"
+],
+[
+"T5 Shivamogga (KA48AF9054)",
+"30 Jun 18:01:47 to 1 Jul 05:59:52",
+"360"
+],
+[
+"Total",
+"",
+"2,869"
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The monthly export appears to run from 18:00 on the last day of the previous month to 06:00 on the first day of the next. These are the same readings exported twice, not extra readings. Left in, the night of 30 June would be counted twice in any average, count or alarm tally.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High. The duplicated rows match in every value.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Nothing about the treatment. If TyreSense documents a different export window, only my explanation of why the overlap exists would change.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Distrust memo; HTML data-quality section.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F2. The Goa truck's July export carries the wrong registration",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" I compared the Vehicle value inside every file with the registration in its file name.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Eleven files match. TyreSense_export_KA25AB4471_2026-07.csv has KA25B4471 in the Vehicle column on all 27,082 rows; the letter A is missing. The June file for the same truck reads KA25AB4471 correctly.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" Anything that groups the data by the Vehicle column would treat the Goa truck's July data as a seventh truck and show the Goa truck as having no July data. I take truck identity from the file name instead. It also means the portal's own vehicle labels cannot be assumed correct.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High that the file belongs to KA25AB4471: the file name says so and its data continues the June file without a break (to be confirmed when I plot the full series).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" If the July data did not continue from June (different sensor batteries or pressures at the join), the file could belong to a different receiver.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Distrust memo; HTML data-quality section.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F3. On the inspection sheets C is the left side and D the right; the data dictionary is wrong",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" The data dictionary says C = co-driver side (right) but in the same paragraph says CF1 = front left. The transcript says C is the cleaner's side, where the helper sits, on the left. Rather than choose between them, I used the tyre serials on the inspection sheet. Westline's serials embed the TPMS position where the tyre was first fitted (WL-T1-1LO-0200 was first fitted at 1LO), so for each of the 70 inspection rows I compared the side letter in the code with the side in the serial.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" In 68 of 70 rows, C codes carry L serials and D codes carry R serials, across all five inspections and every axle. The two exceptions are the Goa truck's CF3 and DF3 on 14 July, which carry 3RO-0205 and 3LO-0204: the pair swapped on 28 June, and the Tyre Register shows exactly that swap. The sheet itself marks both rows \"re-fitted 28-06\". India drives on the left with the driver seated on the right, so D for driver side = right also fits.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" C = left, D = right. The dictionary's label \"co-driver side (right)\" is wrong; its examples (CF1 = front left, DF1 = front right) are correct. Using the dictionary label would have put every inspection reading on the wrong side of the truck, which would reverse any left-right wear comparison.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High. Three independent sources agree (serials, transcript, right-hand drive) and the only exceptions are explained by a recorded event.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Evidence that serials were not assigned at the position in their name, for example tyres moved before the serial scheme began.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Distrust memo; HTML data-quality section and method note on position mapping.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F4. The June rotation was on the Goa truck, as the records show, not as Ramesh remembered",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Ramesh was unsure whether the left-right swap at the end of June was on the Goa or the Karwar truck, and told me to check the register. I read the Tyre Register notes and checked them against the two Goa inspections.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" The Tyre Register shows T1 (Goa) 3LO now holds WL-T1-3RO-0205 and 3RO holds WL-T1-3LO-0204, both noted \"re-fitted 28-06-2026\". 28 June 2026 was a Sunday, matching Ramesh's memory of the day. The 10 June inspection has 0204 on the left (CF3) and 0205 on the right (DF3); the 14 July inspection has them reversed. No Karwar tyre has a re-fit note. The only other register note is the Karwar 5RI replacement on 12 July, which also explains the only inspection serial not in the current register (WL-T2-5RI-0242, inspected on 30 June and removed on 11 July).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The swap was on the Goa truck, axle 3. For wear and pressure analysis I follow tyres by serial across 28 June, so tyre 0204's history continues on the right side after the swap. It also shows the transcript is reliable on the event but not on the vehicle, which is a reason to check other details in it against the records.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the swap. Whether there were other unrecorded swaps I cannot tell yet; the TPMS data should show a step change in a position's pressure pattern if a tyre moved.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" A step change in the TPMS data on another truck or date, which would point to a move the register does not record.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Distrust memo (transcript is unreliable on vehicle identity); HTML fleet events; a candidate question for Ramesh about unrecorded moves.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F5. The receiver reports at two rates, about every 18 to 20 seconds and about every 2 minutes",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" I sorted each truck's records by time and measured the gap between consecutive records.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Across all trucks, 421,722 gaps round to about 20 seconds and 134,312 to about 2 minutes, with the median at 18 seconds. A further 2,869 gaps are zero (the F1 duplicates) and the remaining 270 are spread across other lengths. On the Gadag truck, for example, the first records after midnight on 1 June are two minutes apart.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The receiver almost certainly has a fast and a slow mode. My working explanation is fast while moving and slow while parked, but that is H4 and not yet shown. It matters for two reasons: averages over raw rows are weighted toward driving time, and if the slow rate does mean parked, it gives me a way to find cold readings.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the two rates. Low for what they mean until H4 is tested.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" If the rate does not follow movement, it may follow something else, such as ignition state or a pressure-change trigger.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" HTML method section; possibly the definition of cold readings.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F6. GPS fixes are missing far more often on the Goa and Karwar trucks",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Share of records per file with no latitude.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Goa truck: 15.9% (June) and 18.8% (July). Karwar truck: 13.2% and 16.4%. The other four trucks: 0.8% to 4.3%.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The two trucks that run down the Western Ghats to the coast lose GPS several times more often. Terrain, monsoon cloud or the receiver installation could explain it (H5). Until then, distances or locations computed from GPS on these two trucks will be incomplete, which matters when I compare the kilometre log with GPS distance.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the figures. Low for the cause.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" If the gaps fall on the ghat sections, terrain is the likely cause; if they are spread through the day, depot parking or the receiver is more likely.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Distrust memo (GPS incompleteness); HTML data-quality section.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F7. The exports pass the basic integrity checks",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Total rows, empty slots, duplicates within each file, and gaps longer than one hour.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" 559,179 rows in total. No duplicate rows inside any single file. No gap over one hour on any truck between 1 June and 15 July. The 24 columns for axles 6 and 7 contain no values at all, as the data dictionary says.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" Apart from F1 and F2, the exports are complete at the receiver level: no truck goes dark for an hour or more. That alone does not show that every tyre sensor was reporting, because the receiver can keep sending records while one sensor is silent. Sensor-level completeness is checked separately in F8.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Sensor-level gaps or impossible values, which are the next checks.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" HTML data-quality section (one line).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F8. Every sensor reading is physically plausible; four sensors drop packets about three times as often as the rest",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" In Section 3 I removed the F1 duplicates (559,179 records down to 556,310), reshaped the data to one row per truck, time and tyre (7,788,340 rows), and then checked every reading for impossible values, missing packets per sensor and the longest silence per tyre.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" No reading has pressure at or below zero or above 160 PSI, temperature below 0 °C or above 100 °C, battery outside 0 to 100%, or pressure without a temperature. Across all trucks and positions, temperatures run from 18.9 °C to 82.9 °C. Most sensors miss 1.1 to 1.2% of records. Four miss more: Gadag 5RO (3.5%), Goa 4LI (3.5%), Karwar 3LO (3.5%) and Shivamogga 2RO (2.9%); Karwar 5RI misses 2.1%, which is the failure day (F9). Apart from Karwar 5RI, no tyre is silent for longer than about 12 minutes at a stretch.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" I can use the pressure and temperature values as recorded, without filtering out bad readings. A 1% packet loss is normal radio dropout. The four higher-loss sensors are still reporting most of the time, so they do not hide events, but they may be weaker transmitters or have lower batteries.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the values being plausible. Low for why four sensors drop more packets.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" If the higher-loss sensors also have the lowest batteries, or their dropouts cluster at particular times or places, that would point to a failing sensor rather than random radio loss.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" HTML data-quality section; possibly a line in the distrust memo on sensor reliability.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F9. The Karwar 5RI tyre read below 70 PSI from 09:03 until its last reading at 14:19 on 11 July",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" I listed every tyre in the fleet that ever read below 70 PSI (30% under the drive-axle spec of 100), with the first and last time and the lowest reading, and I looked for the longest silence on any sensor.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Only one tyre in six trucks and six weeks ever went below 70 PSI: Karwar truck (KA25AC1182) position 5RI, the inner right tyre on axle 5. It was below 70 PSI from 09:03:50 to 14:19:41 on 11 July, 1,077 readings, falling to 13.9 PSI. After 14:19 that sensor sent nothing for 16.2 hours, the only long silence on any sensor, until readings resumed on the morning of 12 July, the day the Tyre Register records the replacement tyre (WL-T2-5RI-0901) being fitted. Ramesh's account matches: the driver was returning from Karwar in the morning, felt the truck heavy on one side, stopped twice and saw nothing because it was the inside tyre of a twin, and \"by two o'clock it was finished\".",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The TPMS did record the failure as it developed. For more than five hours on 11 July the sensor reported a tyre far below any reasonable pressure; the GPS chronology in F12 shows about two of those hours were spent driving and the rest stationary, including the roadside stop near Kittur from 12:20. Whatever the portal did with those readings, the information existed in time for someone to tell the driver to stop. This answers the MD's question for the day itself. It does not yet answer whether there was warning in the days before; that is still H3.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High that the sensor recorded the deflation on 11 July and that this is the failure Ramesh describes (same truck, same position, same day, matching times, and the register replacement the next day). I have no record of whether TyreSense raised an alert on 11 July, because the pack has no alert log.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" A portal alert log showing an alarm was raised and sent would move the question from \"could the system have known\" to \"why did nobody act on it\". Readings from 10 July or earlier showing a slow loss would turn this into a multi-day warning.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (headline finding on the Karwar failure); HTML findings; five questions (alert settings and who receives them); one-tyre-one-day warning rule.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F10. Slow reporting goes with negligible movement; fast reporting occurs both moving and stationary",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Section 3C (V6 revised after a second review). The data is explicitly sorted by truck and time. For each pair of consecutive records that both have a GPS fix, I computed the distance between the fixes and divided by the time between the GPS timestamps to get speed. Intervals where either record has no fix get no speed and are counted separately, not as stationary. I then compared speeds for receiver intervals of about 20 seconds (fast mode) and about 2 minutes (slow mode). 3 km/h is an analytical threshold for negligible movement, not a definition of parked. This tests H4.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Fast mode: 421,731 intervals, 383,975 with a valid speed and 37,756 without. Median 23.5 km/h, 95th percentile 55.4 km/h, maximum 99.4 km/h (the maximum is inflated by GPS times being whole seconds; 44 intervals exceed 90 km/h). 44.3% of valid fast-mode intervals are below 3 km/h. Slow mode: 134,354 intervals, 134,301 with a valid speed and 53 without. Median and 95th percentile 0.0 km/h; 99.98% are below 3 km/h. The 33 slow-mode intervals at 3 km/h or more cover 117 to 245 m and every one is immediately followed by a fast-mode interval, so they are the truck pulling away just before the receiver switched mode. My first version of this check reported 40.3% for fast mode because it counted intervals without a speed as moving; the corrected figure is 44.3%.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" Reporting frequency is associated with movement but does not directly identify it. Slow reporting goes with negligible movement. Fast reporting happens both while driving and while standing, in a little under half of valid intervals. The reason the receiver switches mode is not established; ignition state is one possible explanation, but the export has no ignition field. For the analysis, slow mode alone does not make a reading cold. A cold reading needs a stationary period of at least three hours, as the spec requires (see Methodology).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the observed association between reporting mode and movement. Low for the mechanism behind the switching.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" TyreSense documentation describing what triggers the fast mode. A different speed threshold would shift the 44.3% figure but not the pattern. The method discards movement information around missing GPS fixes, which removes about 9% of fast-mode intervals; if those were mostly moving or mostly stationary, the share would change slightly.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" HTML method section (definition of cold readings); five questions (a vendor question, not for Ramesh).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F11. GPS fields and timestamps are internally consistent",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Section 3B, checks V2 to V5: duplicates left after cleaning, whether latitude, longitude and GPS time go missing together, the lag between the GPS fix and the receiver timestamp, and whether every fix falls inside Karnataka and Goa.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" No duplicate truck-and-time pairs remain, and exactly 2,869 rows were removed. Latitude, longitude and GPS time are missing on the same 36,319 records and never separately. Where there is a fix, it is 0 to 3 seconds older than the receiver time (median 2 s), never later and never stale. Every fix lies inside a box covering Karnataka and Goa.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" When a GPS position is present it can be trusted for that moment, and missing GPS is a complete dropout rather than a partial or corrupted fix. The receiver and GPS clocks agree, so I can join pressure readings to locations without any time correction.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Fixes that jump implausibly between consecutive records (Ramesh says the app map \"jumps around\"); the speed check in F10 found a maximum of 99.4 km/h, with only 44 of 383,975 fast-mode intervals above 90 km/h, which points to whole-second GPS timestamps rather than position jumps; I have not seen implausible jumps yet.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" HTML data-quality section.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F12. The Karwar 5RI was at spec the night before, began losing air soon after the 03:00 departure on 11 July, and a twin comparison could have flagged it before the truck's first stop",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Sections 4, 4H and 4I. I compared the failed tyre (5RI) with its twin on the same hub (5RO): twins carry the same load at the same speed on the same road in the same weather, so the difference between them isolates a problem with one tyre. I measured the normal difference from 1 June to 9 July, used only timestamps where both tyres reported (C3), read the individual readings around departure (C4), and found the first 10-minute bins in which the difference passed 5, 10 and 20 PSI (C5; these are bin start times, not exact crossing times). I checked the 5RI sensor's packet loss and battery (C1, C2). I then rebuilt the truck's movements from its own GPS (C7), treating any 10-minute period with under 50 m of movement as stationary and listing stops of 30 minutes or more.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: pressure.",
+true
+],
+[
+" Normal 5RI minus 5RO difference: median -1.0 PSI, middle 95% from -3.2 to +1.1 PSI, unchanged on paired readings only. From 1 to 10 July the daily lowest difference stayed between -1.0 and -1.9 PSI. On the night of 10 to 11 July, parked at Karwar, both tyres read 102 to 103 PSI at about 26 °C. The divergence that follows reflects changes in both tyres: from about 03:15, as the truck warmed, 5RO rose from 102 to 114 PSI while 5RI stayed at 101 to 103 PSI; only after that did 5RI's own pressure fall clearly, to 91.7 PSI at 06:10, 71.5 at 09:00, 38.8 at 12:15, 18.2 at 14:00 and 14.6 at its last reading, 14:19:41. First qualifying 10-minute bins: 5 PSI from 03:20, 10 PSI from 03:40, 20 PSI from 06:10; no earlier day reached even 5 PSI. The failing tyre's air temperature stayed 0.8 to 2.2 °C below its twin, about the usual offset, so temperature gave no sign.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: chronology.",
+true
+],
+[
+" From GPS: parked at Karwar from 20:00 on 10 July to 03:00; Stop 1 from 05:10 to 06:20 (14.78 N, 74.52 E, on the road towards Hubballi); Stop 2 from 09:10 to 10:20 in Hubballi (15.36 N, 75.12 E); Stop 3 from 12:20 to 16:00 at the roadside about 7 km north of Kittur (15.66 N, 74.80 E), during which 5RI pressure kept falling from about 39 PSI to its last reading; then the drive to Belagavi, parked from 17:10. 5RI next reported at 06:30 on 12 July at 100 PSI with battery 98%. The Tyre Register says WL-T2-5RI-0242 was removed at the roadside on 11 July and WL-T2-5RI-0901 was fitted on 12 July. Ramesh, relaying the driver, says the truck felt heavy on one side in the morning, the driver stopped twice and saw nothing, \"by two o'clock it was finished, shredded\", and he changed it on the roadside near Kittur. GPS shows when the truck moved, not what the driver did at each stop.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: sensor.",
+true
+],
+[
+" Before 14:19:41 the 5RI sensor missed 50 of 2,442 records (2.0%), all single records with never two in a row (C1). Its battery fell from 62% on 1 June to 48% on 11 July against 77% to 68% for the twin, and never rose before 11 July; the jump to 98% on 12 July is unexplained, because the export has no sensor ID and the register records only the tyre (C2).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The tyre was not slowly leaking beforehand, so a warning a day ahead was not possible for this failure. Its deterioration began soon after departure and was detectable from about 03:15. A 10 PSI twin warning would have started at 03:40, about an hour and a half before Stop 1; a 20 PSI warning at 06:10, while the truck was standing at Stop 1 and 5RI was still at about 92 PSI. Both came before 5RI fell below 70 PSI (09:03) and before the 70-minute stop in Hubballi, where Westline has a depot. By Stop 3 the tyre was at about 39 PSI. These were opportunities for an inspection or intervention, if an alert had reached someone who could contact the driver; whether it would have been acted on is outside what the data can show. I keep five moments separate: first detectable divergence (about 03:15); first warning bins (03:40 at 10 PSI, 06:10 at 20 PSI); last TPMS reading (14:19:41), which shows only that the sensor was still transmitting, not that the tyre was intact; physical failure (\"by two o'clock\" in a second-hand account, exact time unknown); and replacement (register says 12 July, transcript says at the roadside). Because the physical failure time is not established, I do not give a single lead time.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the pressure timeline, the absence of any earlier warning, the sensor working normally, and the truck's stops. Medium for the intervention opportunities, which depend on alert delivery and reaching the driver. Low for the cause of the air loss, the exact failure time and the replacement sequence. Two explanations for the 16-hour silence and the battery jump remain unverified: a spare without a paired sensor fitted at the roadside with the registered tyre and a new sensor fitted at the depot on 12 July, or the register recording the wrong date.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" A TyreSense alert log for 11 July; the driver's own account of each stop; the fitter's or retreader's report on the failed tyre; or a correction to the register.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (headline answer to the MD's question, with the chart); HTML findings with the chronology table; F13 candidate warning rule; questions for Ramesh; distrust memo (register and transcript disagree on the replacement).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F13. A two-level twin-difference warning is a candidate worth testing; at 10 and 20 PSI the historical alert burden is low, but a reset band is needed",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Section 4I, revised C6. For all 24 twin pairs (six trucks, axles 4 and 5, left and right) I built a complete 10-minute timeline with no bins dropped. Each bin holds the median inner-minus-outer difference over timestamps where both tyres reported; bins with no paired reading are \"no data\". A bin qualifies when the difference passes the threshold in one direction (inner deficit or outer deficit, counted separately). An episode is at least two consecutive qualifying bins (20 minutes); one \"no data\" bin inside a run does not break it, and anything else does. I report qualifying bins and episodes separately, at 5, 10 and 20 PSI. These are historical alert episodes, not confirmed false alarms: some reflect real inflation problems.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" 5 PSI: 118 inner-deficit episodes (1,796 bins) and 149 outer-deficit episodes (2,632 bins), across six pairs plus Karwar; the largest are Goa 4LI/4LO inner deficit (115), Goa 5RI/5RO outer deficit (61), Gadag 5RI/5RO outer deficit (55) and Vijayapura 5LI/5LO outer deficit (33). 10 PSI: 21 episodes; 20 are Gadag 5RI/5RO outer deficit between 1 and 5 June, and one is Karwar 5RI on 11 July (03:40 to 14:20). 20 PSI: one episode, Karwar 5RI from 06:10. The Goa 4LI/4LO single bin at 10 PSI on 18 June no longer counts under the 20-minute rule.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" At 10 PSI the 21 episodes come from two underlying conditions, not 21 events: the 20 Gadag episodes are one persistent imbalance (H8) whose difference fluctuated around the threshold for five days, and the other is the Karwar failure. A rule that alerts each time the difference recrosses the threshold would have messaged Ramesh 20 times about one problem, so any rule needs a reset band (for example, clear only after the difference has returned well inside the threshold for a set time). At 5 PSI the burden is far too high, and most of those episodes are persistent imbalances that a separate daily check would handle better. This supports a candidate two-level rule for further testing: a 10 PSI twin difference sustained for 20 minutes as an inspection warning, and 20 PSI as an urgent warning, both with a reset band. It is not a validated policy, and the thresholds should not be chosen simply because they produced the fewest historical alerts.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the counts under the stated rules. Low for how the rule would perform on other failures: there is one failure to test against, six weeks of data, and no coverage of the single tyres on axles 1 to 3, which have no twin.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" More months of data and more failures; a different minimum duration or reset band; failures on single axles, which would need a different comparison (left against right, or against the tyre's own history).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (candidate warning rule); HTML findings with the episode tables; answer to Ramesh's request for one alarm on one tyre.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F14. The Hubballi trucks start the day 10 to 12 PSI under spec; the Belagavi trucks start on spec",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Section 5 and 5B. I defined a rest as a run of slow-mode records lasting at least three hours with less than 200 m of cumulative GPS movement, and a cold reading as each tyre's median over the last 10 minutes of the rest, just before the truck moves. Morning cold readings are rests ending between 02:00 and 10:00. I compared them with the spec by truck, depot and axle.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" 292 rests qualify; all 292 have under 200 m of cumulative movement and 288 under 50 m. 219 are morning rests, giving 3,062 tyre readings at a median tyre temperature of 24.8 °C (5 to 95%: 23.0 to 28.4 °C). Median morning cold pressure minus spec: Belagavi trucks -1.2 (Vijayapura), -1.7 (Goa), -0.8 (Karwar); Hubballi trucks -12.4 (Gadag), -10.0 (City), -10.6 (Shivamogga). At least 10 PSI under: 0 to 0.6% of Belagavi readings against 51 to 82% of Hubballi readings. The gap appears on every axle (Hubballi -10.1 to -12.0 by axle; Belagavi -0.8 to -1.6).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" Ramesh is right that the Hubballi trucks read low in the morning (\"ninety, ninety-one on the drive tyres\"). It is fleet-wide on those three trucks and on every axle, which suggests a cause at depot level rather than in individual tyres; that is an inference from the pattern, not proof of a depot procedure.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the pattern. The cold-reading rule depends on slow mode meaning parked (F10) and on three hours being enough to cool, as the spec says.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Evidence that the depot gauge and the TPMS disagree by several PSI; a different reading of \"cold\" (for example, overnight temperatures at Hubballi being very different).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck; HTML; answer to Ramesh's question about the Hubballi roads.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F15. Hubballi's detected pressure adjustments happen in the hot afternoon and every adjusted tyre is under spec the following morning; Belagavi adjusts cold and stays on spec",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Sections 5, 5B, 5C and 5D. I detected pressure-adjustment events as a step of 3 PSI or more in a tyre's 10-minute median while the truck was parked, with temperature changing by less than 1.5 °C. These are pressure steps detected in the data, not independently confirmed inflations, and steps under 3 PSI are missed. For each event I compared the pressure set with the card value and with the tyre's first morning cold reading at least 12 hours later, counting adjustment rows, sessions and distinct tyres separately.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" Belagavi: 43 adjustment rows in 7 sessions on 37 distinct tyres, at 06:00 to 06:50, tyre temperature 22 to 28 °C, set to within about 1 PSI of the card value. Hubballi: 69 rows in 9 sessions on 38 distinct tyres, at 15:20 to 16:10, tyre temperature 32 to 52 °C, also set to within about 1 PSI of the card value; on 4 and 5 June the City and Gadag trucks' hot tyres reading above the card value were let down to it (Gadag 5RI from 11.6 PSI above spec at 51.8 °C). At the first morning reading at least 12 hours later: all 69 Hubballi rows, covering all 38 tyres, were 5.8 to 17.9 PSI under spec (median -10.7, a median of 14.9 hours later); all 43 Belagavi rows were within -1.9 to +2.4 PSI (median +0.3, a median of 23.5 hours later). All 27 Hubballi tyres adjusted more than once were at least 5 PSI under after every adjustment; none of the 5 Belagavi tyres adjusted more than once was ever at least 5 PSI under. For Hubballi, the expected drop from cooling, using this dataset's empirical 0.62 PSI per °C, is a median -8.9 PSI against -10.7 observed; the unexplained share ranges from about -5 to +1 PSI across 0.4 to 0.8 PSI per °C.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The sensor data is consistent with the transcript: Belagavi's detected adjustments happen early in the morning at substantially lower tyre temperatures than Hubballi's afternoon adjustments on hot tyres, and both set tyres to the card value. Whether Belagavi's tyres meet the formal cold condition, and the exact procedure at each depot, are not independently confirmed. A tyre set to 100 PSI at around 40 °C reads around 90 once cold, so Hubballi's procedure leaves tyres under spec by design, and letting air out of hot tyres that read high makes it worse. Cooling under the dataset's coefficient can account for most of the deficit, but not necessarily all of it.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the timing, temperatures and next-morning outcomes. Medium for the inferred procedure, which the data does not show directly (who adjusts, with which gauge). Low for the exact split between cooling and other effects, because the 0.62 PSI per °C coefficient is empirical to this dataset and not independently validated. In Section 5C the Belagavi comparison first used a departure reading 0.6 hours after the fill; Section 5D corrected this to a following-day reading, with the same conclusion.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Ramesh or Girish describing a different procedure; a depot gauge that reads several PSI differently from TyreSense; adjustments under 3 PSI that the detection rule misses.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (the Hubballi answer and the fix: fill cold, in the morning, or add the hot allowance); HTML; five questions; explains the Gadag twin imbalance in H8.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F16. Hubballi tyres lose air between fills only slightly faster than Belagavi's; four individual tyres show repeated abnormal loss",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Section 5B, R4 and R5. For each tyre I split its morning cold readings at its own detected adjustment times (and at the 28 June swap for Goa axle 3), fitted the change in PSI per 30 days within each interval of at least five mornings, raw and adjusted for morning temperature, and flagged unstable fits (fewer than 8 mornings, under 7 days, time and temperature correlated beyond 0.7, an implausible temperature coefficient, or raw and adjusted differing by more than 8 PSI). A first version split every tyre at any fill on its truck and at midnight on the fill date; ChatGPT's review found this and it was corrected.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence.",
+true
+],
+[
+" 177 intervals, 68 flagged unstable. On stable intervals, median PSI per 30 days: Belagavi -1.4 raw and -1.3 adjusted; Hubballi -3.0 raw and -1.7 adjusted. Tyres with repeated fast loss (more than 6 PSI per 30 days): Karwar 3LO, fast in two stable intervals and one unstable; Goa 4LI, fast in all three intervals (-14 to -18 raw), one stable, and drifting from its twin in Section 4; Gadag 5RO, fast in all three raw, one stable; City 5RI, fast in two of three raw, one stable.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" These are descriptive medians across six trucks, not a test that the depots are equivalent. Hubballi tyres may lose somewhat more air raw, but at 1 to 2 PSI per 30 days more it would take months to produce the 10 to 12 PSI deficit that appears the morning after a fill (F15). So the roads are not the main reason the Hubballi trucks read low, though a small road effect is not ruled out. Separately, a few tyres leak at several times the spec's 3 PSI a month and should be inspected, starting with Goa 4LI and Karwar 3LO.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" Medium. Morning temperature trends over the six weeks make time and temperature hard to separate in many intervals, and each interval has only 5 to 18 mornings.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" A longer period; workshop findings on the candidate tyres; a different stability rule.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (roads question; tyres to inspect); HTML; recommendation list.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F17. The Goa truck's afternoon pressure drops hit all fourteen tyres at once and track tyre cooling; pressure largely recovers as the tyres warm again, and the same pattern appears on every truck",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Sections 6 and 6I. For each truck I took 10-minute medians of every tyre's pressure and temperature. A bin qualifies when, against the bin 30 minutes earlier, the median tyre temperature has fallen by at least 8 °C, at least 12 of the 14 tyres have each lost at least 3 PSI, and the receiver was in its fast reporting mode in all four bins of that comparison. Consecutive qualifying bins form one event, and each event's window runs from 30 minutes before its first qualifying bin to its last qualifying bin; every measure uses that window. For recovery I took the first bin 1 to 3 hours later in which median temperature was back within 2 °C of the window start, and compared pressure there with the start. I marked Goa trip days as days the truck went west of 74.2 E, compared GPS missingness inside events with each truck's overall rate, checked the Karwar events for movement with GPS, and asked whether the candidate twin-difference rule (F13) would have fired.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: the Goa truck.",
+true
+],
+[
+" 13 events, all between 9 June and 11 July, with windows starting between 13:00 and 16:10 (13:00 hour 2, 14:00 hour 2, 15:00 hour 5, 16:00 hour 4) and lasting 40 to 50 minutes. None on the three trip days before 8 June (2, 4 and 6 June); events on 13 of the 16 trip days after it. In each event median tyre temperature fell 11.7 to 18.1 °C and median pressure 7.7 to 12.6 PSI, at 0.66 to 0.73 PSI per °C, close to this dataset's coefficient of 0.62 (Section 5). All 14 tyres lost at least 3 PSI in every qualifying comparison of every event (36 of 36). In the example event on 27 June (15:20 to 16:10) every tyre fell at about 0.7 PSI per °C and all ended 0.5 to 4.8 PSI above spec. The lowest tyre during each event was between 8.0 PSI under and 3.1 PSI over spec; the four lowest (6.1 to 8.0 under) were the four events before the 18 June fill. Recovery could be measured in 9 of 13 events: pressure came back to between 1.62 and 0.38 PSI below the starting value (median 1.27 below); in the other 4 the temperature did not return within 3 hours. Events were on the Goa side and ghat section (15.39 to 15.49 N, 73.84 to 74.34 E). GPS was missing for 44% to 74% of event time against 6% overall. The largest twin difference during any event was 8.1 PSI, so the candidate 10 PSI rule would not have fired.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: the rest of the fleet.",
+true
+],
+[
+" Events occurred on all six trucks: Goa 13, Karwar 10, Gadag 6, City 4, Shivamogga 3, Vijayapura 7, all starting between 11:00 and 17:00 and none before 9 June, with medians of 0.69 to 0.73 PSI per °C. All 14 tyres met the threshold in 110 of 112 qualifying comparisons fleet-wide and in every comparison of 41 of 43 events; in the other two (one Karwar, one Shivamogga) one comparison had 13 tyres. Two or more trucks had events on the same day eight times, including four trucks on 17 June and on 10 July. Median GPS missingness during events was 45% to 70% per truck, against 1% to 7% overall on every truck. The Karwar truck was stationary during all ten of its events: 55 to 127 GPS fixes inside each window, 0 m moved and identical coordinates (14.81 N, 74.13 E), with the receiver in fast mode.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The afternoon drops on the Goa truck are whole-truck temperature effects, not air loss from individual tyres: every tyre falls together, at the rate expected from cooling, and pressure largely comes back as temperature returns. The remaining shortfall of 0.4 to 1.6 PSI is within what the incomplete temperature recovery (up to 2 °C, about 1.2 to 1.5 PSI at this rate) would explain, so this is consistent with no air loss but does not prove it. The timing, starting on 9 June, and the afternoon hours are consistent with Ramesh's account of afternoon rain arriving in the second week of June, but the export holds no weather data, so the cause is not established; the higher GPS missingness during events is an association only, not evidence of rain. Nor is the pattern specific to the Goa road or to driving: it appears on every truck and on the Karwar truck while parked with the receiver in fast reporting mode. Ramesh's \"every afternoon\" is close but not exact (13 of 16 trip days after 8 June). Whether these events set off TyreSense alarms I cannot check without the alert log; if the alarm is a low-pressure threshold, the events before the 18 June fill, when tyres fell 6 to 8 PSI under spec, are the ones most likely to have triggered it, while the twin comparison would not have.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the simultaneous fall on all tyres, its rate and its timing. Medium for recovery (measured in 9 of 13 events, with temperature only back within 2 °C). Low for the cause: rain is plausible, not shown.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Rainfall or weather data for the route and the Karwar yard; the TyreSense alert log with its thresholds; tread or rim temperature, since the valve-stem sensor measures air temperature and may lag the tread; a different detection threshold.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Deck (the Goa afternoon alarms answered); HTML findings with the chart and event tables; questions for Ramesh (what the alarm threshold is and what reaches him); distrust memo (the transcript's \"every afternoon\" framing, and a Goa-only problem that is fleet-wide).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_2",
+"bullet": false,
+"runs": [
+[
+"F18. The km log is continuous and agrees with GPS; three transcript claims check out, one cannot be confirmed, and one sensor battery is nearly flat",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I checked and how.",
+true
+],
+[
+" Sections 7 and 7V. For each sensor I took the daily median battery and compared the first and last day, the lowest value and any one-day rise of 10 points or more. For the km log I checked that every opening reading equals the previous closing one and that KM Run equals closing minus opening, then compared each day's KM Run with GPS distance (straight lines between consecutive fixes, ignoring steps faster than 120 km/h). I counted Goa trip days per week, looked at the City truck on every Sunday, and looked for days when the Shivamogga truck was near Mangaluru. I also checked whether the export has any engine or ignition field.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: batteries.",
+true
+],
+[
+" The median sensor ends the period at 64% (quartiles 56% and 72%) and loses about 9 points per 30 days. Only one sensor is below 30%: Shivamogga 2RO, at 14% on 1 June and 1% at the end, with missing readings rising from 2.9% over the period to 6.0% from 10 July. Two sensors rise sharply in one day: Goa 3LO by 25 points on 28 June, the day of the axle-3 rotation (the sensor sits on the valve, so it moved with its tyre, which agrees with F4), and Karwar 5RI by 50 points on 12 July, the replacement (F12).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: km log.",
+true
+],
+[
+" 270 rows, 45 days for each truck, with no continuity breaks and no row where closing minus opening differs from KM Run. GPS distance is 94% to 98% of the logged km on every truck, lowest on Goa (94%) and Karwar (95%), where GPS is missing most often; no day disagrees sharply.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Evidence: transcript claims.",
+true
+],
+[
+" Goa truck: three trip days in each of the six complete ISO weeks, with one more in the final partial week (Tuesday, Thursday and Saturday; 19 in all), and each is a 278 km day in the log against about 64 km on other days. City truck: on all six Sundays (7, 14, 21 and 28 June, 5 and 12 July) no GPS movement, 0 km in the log, and the receiver in its slow reporting rate all day, at its usual night position (15.365 N, 75.124 E). Shivamogga truck: reached Mangaluru (12.87 N, 74.84 E) at about 13:00 on 5 July, stayed overnight and drove back on 6 July; 6 July's 391 km is the only day at that level in its 45-day log (next highest 218 km), and no other truck exceeds 279 km. The export has no engine or ignition field: only time, vehicle, GPS time, average battery, position, and pressure, temperature and battery per tyre.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What it tells us.",
+true
+],
+[
+" The km log is a reliable basis for distance, as Ramesh says, and GPS confirms it within the shortfall expected from straight-line distances and missing fixes. The Anmod \"three times a week\" and the single Mangaluru run are supported. The City truck's two workshop Sundays cannot be confirmed or ruled out: the truck did not move on any Sunday, and the data cannot tell a workshop day from a parked day. Engine status cannot be established from this export, so wherever these notes describe fast reporting mode, that describes the receiver's reporting rate, not a measured engine state. \"Some batteries are already low\" is true of one sensor out of 84, and that one is close to failing.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Confidence.",
+true
+],
+[
+" High for the km log, the battery figures, the Goa trip pattern and the Mangaluru run. The City truck question stays open.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What could change my interpretation.",
+true
+],
+[
+" Workshop job cards for the City truck; TyreSense's low-battery threshold and its battery replacement records; an export that includes ignition status.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"Where used.",
+true
+],
+[
+" Transcript claim checks; recommendation to replace the Shivamogga 2RO sensor; distrust memo (what the km log and the battery fields can and cannot support).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Limitations: what the data cannot tell us",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"No loads.",
+true
+],
+[
+" Westline does not record weight per trip, only pallet or bag counts on the challan. I cannot separate the effect of load from route or pressure on wear or temperature.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"No speed, altitude or vibration in the current export. Ramesh says TyreSense told him the receiver records them, but whether it captures or stores these fields is unconfirmed.",
+true
+],
+[
+" Speed and gradient can only be estimated from GPS, which is missing for 13 to 19% of records on the two ghat trucks (F6).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"One failure.",
+true
+],
+[
+" There is one road failure in the period. I can describe what the data showed before it, but I cannot validate a warning rule on one case or estimate how often such a rule would raise false alarms.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Tread inspections are partial.",
+true
+],
+[
+" Only the Goa truck was inspected twice, so it is the only truck where I can measure wear over time. Shivamogga and Vijayapura were never inspected.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Six weeks only.",
+true
+],
+[
+" Three PSI a month of normal loss is close to what six weeks can resolve, so slow-leak estimates for individual tyres will be uncertain.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"No record of air top-ups.",
+true
+],
+[
+" Neither depot logs when it adds air. I will have to infer top-ups from jumps in the data.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Questions for Ramesh",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"A running list. I will rank the final five at the end; each one should change what I conclude, not just add detail.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"When Girish adds air in Hubballi, are the tyres still hot from the morning run, and does he fill to the card value on the gauge?",
+true
+],
+[
+" If yes, the low morning readings are a fill-timing effect, not leaks (H2), and the fix is to fill cold in the morning.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"What did the failed Karwar 5RI tyre look like when it came off, and when was it last aired or repaired?",
+true
+],
+[
+" A puncture, a repair or a long under-inflated run would tell me what to look for in the TPMS data before 11 July (H3).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Has anyone compared the depot dial gauge with a TyreSense reading on the same tyre?",
+true
+],
+[
+" If the gauge reads a few PSI off, every fill is off by that amount and my comparison against spec needs an offset.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Apart from the 28 June swap, were any tyres moved, repaired or replaced between 1 June and 15 July without a register entry?",
+true
+],
+[
+" An unrecorded move would put two tyres' histories under one position (F4).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"On 11 July, when did the Karwar truck leave, did the driver notice anything at departure, and who could see TyreSense alerts in real time that morning?",
+true
+],
+[
+" F12 shows the loss started at about 03:00 and a twin-difference alarm would have fired at 03:40; whether anyone could have acted depends on who receives alerts and whether the driver can be reached.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"For the Karwar 5RI on 11 July: what was fitted at the roadside near Kittur, was WL-T2-5RI-0901 fitted there or at the depot on 12 July, and was a new TPMS sensor fitted?",
+true
+],
+[
+" The register and transcript disagree on where and when the tyre was replaced, and the answer would explain the 16-hour sensor silence and the battery jump from 48% to 98% (F12).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": true,
+"runs": [
+[
+"Have Goa 4LI, Karwar 3LO, Gadag 5RO or City 5RI been repaired, re-seated or reported as losing air?",
+true
+],
+[
+" F16 shows each losing air several times faster than the spec allows; a known puncture repair or valve problem would confirm the reading, and if nothing is known they should be inspected.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"Transcript claim checks",
+false
+]
+]
+},
+{
+"type": "table",
+"rows": [
+[
+"Claim (Ramesh)",
+"Checked against",
+"Verdict",
+"Ref"
+],
+[
+"The June/July rotation was on the Goa or the Karwar truck",
+"Tyre Register, inspection sheets",
+"Goa truck, axle 3, 28 June",
+"F4"
+],
+[
+"The rotation was on a Sunday at the end of June",
+"Register date and calendar",
+"True (28 June 2026 was a Sunday)",
+"F4"
+],
+[
+"C is the cleaner's (left) side, D the driver side",
+"Tyre serials on inspection sheet",
+"True",
+"F3"
+],
+[
+"Goa truck inspected twice; Mangaluru (Shivamogga) and Vijayapura trucks never; others once",
+"NSD Inspections sheet",
+"True",
+"Fleet reference"
+],
+[
+"The spec card reads 115 front, 105 on the next two, 100 on the drive axles",
+"Spec sheet",
+"True",
+"Fleet reference"
+],
+[
+"Goa truck runs the Anmod ghat three times a week",
+"KM log, GPS",
+"Supported: three trip days in each of the six complete weeks, plus one in the final partial week (Tuesday, Thursday, Saturday; 19 in all), each a 278 km day in the log",
+"F18"
+],
+[
+"City truck was in the workshop on two Sundays",
+"KM log, TPMS",
+"Not confirmed: no GPS movement and 0 km on all six Sundays, at the usual night position; engine status and workshop visits are not in the data",
+"F18"
+],
+[
+"Shivamogga truck did one Mangaluru run in the first week of July",
+"KM log, GPS",
+"Supported: reached Mangaluru on 5 July and returned on 6 July (391 km, the only day at that level in its log)",
+"F18"
+],
+[
+"The kilometre log is \"the most honest number we have\"",
+"Odometer continuity, GPS distance",
+"Supported: no continuity breaks across 270 daily records (45 days per truck); GPS distance is 94% to 98% of logged km on every truck, with no day disagreeing sharply",
+"F18"
+],
+[
+"Hubballi trucks leak more because of bad roads",
+"TPMS cold pressures, fill timing",
+"Not supported as the main cause: the low mornings follow hot afternoon adjustments; loss between fills is only slightly higher, so a small road effect is not ruled out",
+"F14–F16"
+],
+[
+"Fourteen tyres alarm together on the Goa truck every afternoon",
+"TPMS 10-minute medians and GPS, 1 June to 15 July (Section 6)",
+"Partly supported: all 14 tyres fall together on 13 of 16 Goa trip days from 9 June, consistent with cooling; not every afternoon, not unique to Goa, and alarms cannot be verified without the alert log",
+"H1, F17"
+],
+[
+"Some sensor batteries are already low",
+"TPMS battery columns",
+"Partly supported: only one of 84 sensors is low (Shivamogga 2RO, 14% at the start and 1% at the end, with missing readings rising to 6% from 10 July); the median sensor ends at 64%",
+"F18"
+]
+]
+},
+{
+"type": "p",
+"style": "HEADING_1",
+"bullet": false,
+"runs": [
+[
+"AI working log",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"What I asked the AI, what it produced, and what I checked, rejected or changed. All exchanges are in the Claude transcript.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"5 Nov, 22:52. Pack briefing.",
+true
+],
+[
+" I asked Claude to explain the task and plan the work. It listed leads from the transcript (rain cooling, hot fills, the 5RI failure, the C/D contradiction). I recorded these as hypotheses H1 to H3, not findings, because none had been tested in the data.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"5 Nov, 23:04. First load of all twelve exports.",
+true
+],
+[
+" The first version of the duplicate check ran inside each file and found nothing. The first and last timestamps showed the June and July files overlapping, so the check was rerun across files and found 2,869 duplicates (F1). The lesson I took: a per-file check cannot see a problem between files.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"5 Nov, 23:04. Truck identity.",
+true
+],
+[
+" Grouping by the Vehicle column split the Goa truck into two vehicles. The code was changed to take the truck from the file name (F2).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:13. Side codes.",
+true
+],
+[
+" Instead of accepting either the data dictionary or the transcript on C/D, I had the codes tested against the tyre serials, which settled it (F3). The same check found the one inspection serial missing from the register, which turned out to be the failed Karwar tyre.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:27. Replication.",
+true
+],
+[
+" I ran Section 2 in my own Colab notebook. Every figure matches these notes: 559,179 rows, KA25B4471 in the Goa July file, the same overlap counts on all six trucks (2,869 in total), and the same record intervals (421,722 at about 20 s, 134,312 at about 2 min). F1, F2 and F5 to F7 are confirmed.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:33. Section 3.",
+true
+],
+[
+" I ran Section 3 in Colab and the output matched the AI's test run: 556,310 records after de-duplication, no impossible values, four higher-loss sensors, and Karwar 5RI below 70 PSI from 09:03 to 14:19 on 11 July. The AI flagged the 5RI result as the answer to the MD's question for the day itself; I wrote it up as F9 but kept H3 (warning in the days before) open, because a five-hour warning on the day is not the same as the one-day notice Ramesh asked for.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:41. Cross-check with a second AI (ChatGPT).",
+true
+],
+[
+" I gave ChatGPT the Section 1 and 2 outputs and these notes for an independent review. Its points and what I did: (1) It first said my Colab output did not support F2, then checked the CSV itself and withdrew that; my output does show KA25B4471, so F2 stands. (2) It asked for explicit PASS/FAIL checks, a check that no duplicates remain, latitude and longitude checked separately, GPS time against receiver time, and the reporting rate tested against movement; I accepted all of these and added them as Section 3B. (3) It said F7 overclaimed by implying a working receiver means working sensors; I agreed and reworded F7 to point to the sensor-level check in F8. (4) It warned against assuming rain in H1 and against treating tyre temperature as proof of brake heat in H6; I agreed and reworded both. (5) It suggested holding the Karwar analysis until the master dataset was validated; Section 3 had already done the sensor-level and impossible-value checks it listed, which it had not seen, so after 3B the dataset is validated and Section 4 can follow. (6) The AI's test of 3B showed slow reporting mode is always stationary but fast mode is stationary 40% of the time, so H4 as I wrote it (fast = moving) is only half right; I will record this once my own 3B run confirms it.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:46. Section 3B.",
+true
+],
+[
+" I ran the validation checks in Colab and the output matched the AI's test run exactly: one FAIL (Goa July registration), PASS on duplicates, GPS fields and timestamps, and the reporting-mode split. I recorded the corrected H4 result as F10 and the GPS and timestamp checks as F11. V7 also confirmed that Karwar 5RI was transmitting normally (about 2% packets missed) every day before 11 July.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 00:55. Second review of 3B by ChatGPT, and Section 3C.",
+true
+],
+[
+" ChatGPT recalculated V6 and found that intervals without a GPS speed had been counted as not stationary, so the fast-mode stationary share was 40.3% across all intervals but 44.3% across valid speeds; the AI's recheck agreed and I adopted 44.3%. It also asked for speed to use GPS timestamps (accepted: median 23.5 km/h, maximum 99.4 km/h from whole-second rounding), for an explicit sort before differencing (added; the data was already sorted, so results are unchanged), and for F10 to say 'negligible movement' and leave the reason for mode switching unproven (accepted, F10 rewritten). I rejected one of its statements with evidence: it said 5RI packet availability deteriorated on 11 July, but packets missing from midnight to the last reading at 14:19 were 2.0%, the same as other days; the 26.6% for the day comes from the silence after the tyre was destroyed. I also checked its concern about the 33 slow-mode intervals above 3 km/h: all 33 are immediately followed by a fast-mode interval and cover 117 to 245 m, so they are the truck pulling away just before the receiver switched mode, not GPS noise or driving in slow mode. At 00:59 my own Colab run of 3C reproduced every figure (44.3% fast-mode stationary; 33 slow-mode intervals, 0.02%, at 3 km/h or more).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 01:04. Section 4.",
+true
+],
+[
+" My Colab run of Section 4 matched the AI's test run on every figure: normal twin difference, daily ranges, hourly readings, threshold times (03:20, 03:40, 06:10) and last reading (14:19:41). I wrote it up as F12 and marked H3 answered. The 4g sensor-health lines (packet loss before 14:19 and battery) did not appear in my first output; I ran them as a separate cell at 01:06 and they matched (2.0% missing before 14:19; battery 48% against 68% on 11 July).",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 01:16. Section 4H (second review of Section 4).",
+true
+],
+[
+" ChatGPT asked for further checks before accepting the Karwar conclusion: packet-loss pattern, the battery jump, paired readings only, raw readings at 03:00 to 04:00, thresholds restricted to 11 July, false-alarm episodes, and the actual failure time. The AI ran them and my Colab run matched every figure. They supported F12, and I added three things: the first sign at about 03:15 was 5RI failing to rise with heat rather than falling; the battery jump from 48% to 98% is recorded as unresolved because the export has no sensor ID; and the failure time is about 14:00 from Ramesh's second-hand account, not the 14:19 last reading. The false-alarm check became F13 and also produced a new hypothesis, H8, on twin imbalances. I labelled the checks C1 to C7 so they would not be confused with hypotheses.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 01:26. Section 4I and final review of Section 4.",
+true
+],
+[
+" ChatGPT found that C6 dropped empty 10-minute bins, which could join separate alarm runs, and asked for the incident chronology to be resolved before stating a lead time. The AI rebuilt C6 on a complete timeline with explicit rules and rebuilt the 11 July chronology from GPS; my Colab run matched. The GPS showed the truck stopped near Kittur from 12:20 to 16:00, so the last reading at 14:19 came while it was parked. ChatGPT's final review asked me to treat the 20 Gadag episodes as one condition, drop the 10 PSI per month figure for Goa 4LI because the readings are not confirmed cold, not to treat 14.6 PSI at 14:19 as proof the tyre was intact, to keep the spare-tyre and battery explanations unverified, to note that GPS shows movement but not what the driver did, and to present the two-level warning as a candidate for testing. I accepted all of these; F12, F13 and H8 were rewritten and Section 4 is closed.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 02:05. Section 5, with four rounds of review by ChatGPT.",
+true
+],
+[
+" The AI built the cold-reading rule and the adjustment-event detection and found the Hubballi hot-fill pattern. ChatGPT's reviews led to five changes, all accepted: per-tyre segmentation of loss rates at the actual adjustment time (the first version split every tyre on a truck at midnight on any fill date, a real bug); stability flags on the loss-rate fits, which turned 'no difference between depots' into 'Hubballi slightly faster raw, similar after temperature adjustment'; counting distinct tyres rather than adjustment rows (38 and 37, not 69 and 43); describing 0.62 PSI per °C as an empirical coefficient with a sensitivity range, and the residual as unexplained rather than measured air loss; and a timing check that showed 28 of 43 Belagavi matches were departure readings 0.6 hours after the fill, corrected with a following-day comparison that gave the same conclusion. Cumulative GPS distance confirmed all 292 rests. My Colab runs matched every figure.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 02:35. Section 6 (H1), with two rounds of review by ChatGPT.",
+true
+],
+[
+" The AI built the cooling-event detection and my Colab run matched. ChatGPT found that merged events were timed from the last qualifying bin minus 30 minutes, which cut windows short; the AI rebuilt them from the first qualifying bin minus 30 minutes and required engine-on in all four bins of each comparison. Event counts did not change, but the per-event measures did (now 0.66 to 0.73 PSI per °C), and the one positive recovery value disappeared. I accepted ChatGPT's requests to state recovery as largely recovering rather than proof of no loss, to treat rain as plausible and GPS missingness as an association, to confirm the Karwar events were stationary with GPS, and to relabel the charts. A second review asked me to check the fourteen-tyre claim comparison by comparison (Goa 36 of 36; fleet 110 of 112) and to measure Karwar GPS strictly inside the window (still 0 m). Two Colab problems along the way: a data-type error, fixed by converting values to numbers, and a paste that was cut off, fixed by taking the code from a file. F17 written, H1 and H5 updated; Section 6 closed.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 02:45. Section 7 (quick checks), with one review by ChatGPT.",
+true
+],
+[
+" The AI wrote one cell for batteries, km log against GPS and the remaining transcript claims; my Colab run matched. ChatGPT asked whether the export has an engine or ignition field (it does not), so I withdrew \"engine off\" for the City truck's Sundays and changed \"engine on\" in F17 to \"fast reporting mode\". It also asked for the Shivamogga maximum over the whole km log: 391 km on 6 July is the only day at that level. F18 written; transcript claim checks complete; Section 7 closed.",
+false
+]
+]
+},
+{
+"type": "p",
+"style": "NORMAL_TEXT",
+"bullet": false,
+"runs": [
+[
+"6 Nov, 04:10. Final review of the notes by ChatGPT.",
+true
+],
+[
+" ChatGPT read the full notes and asked for six corrections. I accepted all six: the data-quality summary now reports the completed km-log checks; the limitation on speed, altitude and vibration now says the export lacks them and the receiver's capability is unconfirmed (Ramesh's account is second-hand from TyreSense); the km-log row says 270 daily records rather than 270 days; the Goa trip frequency is stated per complete week; F14's depot conclusion is framed as an inference; and F15 no longer asserts that Belagavi fills cold, only that its adjustments happen at much lower tyre temperatures. The strict-window Karwar GPS counts (55 to 127 fixes) match my Colab Section 6I output.",
+false
+]
+]
+}
+]
