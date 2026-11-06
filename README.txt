@@ -2,7 +2,7 @@ WESTLINE CARRIERS – TPMS ASSESSMENT
 Humaniti AI Build Challenge · Data Analyst Assessment
 Submitted by: Ritika Raj Parekh
 Submitted on: 6 November 2026
-GitHub: [paste repository link here]
+GitHub: https://github.com/RitikaRaj-1005/westline-tpms-assessment
 
 ----------------------------------------------------------------------
 THE BRIEF
@@ -40,8 +40,11 @@ SHORT ANSWERS
 ----------------------------------------------------------------------
 FOLDER CONTENTS
 ----------------------------------------------------------------------
+In the submitted zip the files are grouped into the folders below. In
+the GitHub repository the same files sit at the top level.
+
 01_Findings/
-  Westline_Findings_Deck (.pptx/.pdf)  Short deck, most critical
+  Westline Tyre Findings.pdf           Short deck, most critical
                                        findings (10 slides, built in
                                        Claude Slides).
   Westline_Findings_Full.html          All 18 findings, each with what
@@ -64,7 +67,7 @@ FOLDER CONTENTS
 04_Code/
   Westline_Analysis.ipynb              Google Colab notebook, Sections
                                        1–8, with all outputs.
-  Westline_Analysis.py                 Plain-script copy of the notebook.
+  westline_analysis.py                 Plain-script copy of the notebook.
   build_html.py                        Builds the HTML findings file
                                        (run by Section 8).
   notes.json                           The Assessment Notes as structured
@@ -76,7 +79,7 @@ FOLDER CONTENTS
   ChatGPT sessions I used to review each section independently.
 
 06_Working_Notes/
-  Westline_Assessment_Notes.pdf        My working document: methodology,
+  Westline – Assessment Notes.pdf      My working document: methodology,
                                        data-quality checks, hypotheses
                                        (H1–H8) and their status, all
                                        findings, limitations, transcript
